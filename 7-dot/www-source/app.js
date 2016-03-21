@@ -66,6 +66,7 @@ var duration = music_duration / dataset.length;
 /*
     ANIMATION
 */
+function animate(){
 var x = document.getElementById('seekTo').value;
     x = Math.floor(x);
     console.log("x is ", x);
@@ -133,7 +134,7 @@ tl4.to(p4, 2, { opacity: 0, bottom: 0 });
 tl5.to(p5, 2, { opacity: 0, bottom: 0 });
 tl6.to(p6, 2, { opacity: 0, bottom: 0 });
 tl7.to(p7, 2, { opacity: 0, bottom: 0 });
-
+}
 /*
     AUDIO
 */
@@ -147,6 +148,7 @@ var audio = new Howl({
 */
 
 function start() {
+    animate()
     tl1.play();
     tl2.play();
     tl3.play();
