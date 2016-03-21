@@ -66,8 +66,18 @@ var duration = music_duration / dataset.length;
 /*
     ANIMATION
 */
+var x = document.getElementById('seekTo').value;
+    x = Math.floor(x);
+    console.log("x is ", x);
 
-for (var i = 0; i < dataset.length - 15; i++ ) {
+for (var i = 0; i < dataset.length - x; i++ ) {
+    var h1 = Math.floor(x/6);
+    var h2 = Math.floor(x/3);
+    var h3 = Math.floor(x/2);
+    var h4 = Math.floor(x*(2/3));
+    var h5 = Math.floor(x*(5/6));
+
+
     tl1.to(p1, duration, {
         bottom: dataset[i].f,
         width: dataset[i].a ,
@@ -75,40 +85,40 @@ for (var i = 0; i < dataset.length - 15; i++ ) {
         borderRadius: dataset[i].a  / 2
     });
     tl2.to(p2, duration, {
-        bottom: dataset[i+2].f,
-        width: dataset[i+2].a ,
-        height: dataset[i+2].a ,
-        borderRadius: dataset[i+2].a / 2
+        bottom: dataset[i+h1].f,
+        width: dataset[i+h1].a ,
+        height: dataset[i+h1].a ,
+        borderRadius: dataset[i+h1].a / 2
     });
     tl3.to(p3, duration, {
-        bottom: dataset[i+4].f ,
-        width: dataset[i+4].a ,
-        height: dataset[i+4].a ,
-        borderRadius: dataset[i+4].a / 2
+        bottom: dataset[i+h2].f ,
+        width: dataset[i+h2].a ,
+        height: dataset[i+h2].a ,
+        borderRadius: dataset[i+h2].a / 2
     });
     tl4.to(p4, duration, {
-        bottom: dataset[i+6].f ,
-        width: dataset[i+6].a ,
-        height: dataset[i+6].a ,
-        borderRadius: dataset[i+6].a  / 2
+        bottom: dataset[i+h3].f ,
+        width: dataset[i+h3].a ,
+        height: dataset[i+h3].a ,
+        borderRadius: dataset[i+h3].a  / 2
     });
     tl5.to(p5, duration, {
-        bottom: dataset[i+8].f,
-        width: dataset[i+8].a ,
-        height: dataset[i+8].a ,
-        borderRadius: dataset[i+8].a  / 2
+        bottom: dataset[i+h4].f,
+        width: dataset[i+h4].a ,
+        height: dataset[i+h4].a ,
+        borderRadius: dataset[i+h4].a  / 2
     });
     tl6.to(p6, duration, {
-        bottom: dataset[i+10].f ,
-        width: dataset[i+10].a ,
-        height: dataset[i+10].a ,
-        borderRadius: dataset[i+10].a  / 2
+        bottom: dataset[i+h5].f ,
+        width: dataset[i+h5].a ,
+        height: dataset[i+h5].a ,
+        borderRadius: dataset[i+h5].a  / 2
     });
     tl7.to(p7, duration, {
-        bottom: dataset[i+12].f,
-        width: dataset[i+12].a ,
-        height: dataset[i+12].a ,
-        borderRadius: dataset[i+12].a  / 2
+        bottom: dataset[i+x].f,
+        width: dataset[i+x].a ,
+        height: dataset[i+x].a ,
+        borderRadius: dataset[i+x].a  / 2
     });
 
     
