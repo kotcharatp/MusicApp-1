@@ -59,6 +59,7 @@ var duration = music_duration / dataset.length;
     ANIMATION
 */
 // get trace value from textbox
+function animate(){
 var x = document.getElementById('seekTo').value;
 x = Math.floor(x);
 console.log("x is ", x);
@@ -92,7 +93,7 @@ for (var i = 0; i < dataset.length - x; i++ ) {
 tl1.to(p1, 2, { opacity: 0, bottom: 0 });
 tl2.to(p2, 2, { opacity: 0, bottom: 0 });
 tl3.to(p3, 2, { opacity: 0, bottom: 0 });
-
+}
 /*
     AUDIO
 */
@@ -106,6 +107,8 @@ var audio = new Howl({
 */
 
 function start() {
+        animate()
+
     tl1.play();
     tl2.play();
     tl3.play();
