@@ -58,8 +58,12 @@ var duration = music_duration / dataset.length;
 /*
     ANIMATION
 */
-
-for (var i = 0; i < dataset.length - 15; i++ ) {
+// get trace value from textbox
+var x = document.getElementById('seekTo').value;
+x = Math.floor(x);
+console.log("x is ", x);
+for (var i = 0; i < dataset.length - x; i++ ) {
+    var h1 = Math.floor(x/2);
     tl1.to(p1, duration, {
         bottom: dataset[i].f,
         width: dataset[i].a ,
@@ -67,16 +71,16 @@ for (var i = 0; i < dataset.length - 15; i++ ) {
         borderRadius: dataset[i].a  / 2
     });
     tl2.to(p2, duration, {
-        bottom: dataset[i+2].f,
-        width: dataset[i+2].a ,
-        height: dataset[i+2].a ,
-        borderRadius: dataset[i+2].a / 2
+        bottom: dataset[i+h1].f,
+        width: dataset[i+h1].a ,
+        height: dataset[i+h1].a ,
+        borderRadius: dataset[i+h1].a / 2
     });
     tl3.to(p3, duration, {
-        bottom: dataset[i+4].f ,
-        width: dataset[i+4].a ,
-        height: dataset[i+4].a ,
-        borderRadius: dataset[i+4].a / 2
+        bottom: dataset[i+x].f ,
+        width: dataset[i+x].a ,
+        height: dataset[i+x].a ,
+        borderRadius: dataset[i+x].a / 2
     });
 
 
