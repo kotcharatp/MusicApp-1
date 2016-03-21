@@ -1,4 +1,5 @@
 // locate target for animating
+
 var p1 = document.getElementById('p1');
 var p2 = document.getElementById('p2');
 var p3 = document.getElementById('p3');
@@ -11,7 +12,6 @@ tl2 = new TimelineMax({ paused:true });
 tl3 = new TimelineMax({ paused:true });
 tl4 = new TimelineMax({ paused:true });
 tl5 = new TimelineMax({ paused:true });
-
 /*
     CUSTOMIZE
 */
@@ -63,7 +63,17 @@ var duration = music_duration / dataset.length;
     ANIMATION
 */
 
-for (var i = 0; i < dataset.length - 15; i++ ) {
+function animate(){
+    // get trace value from textbox
+    var x = document.getElementById('seekTo').value;
+    x = Math.floor(x);
+    console.log("x is ", x);
+
+    for (var i = 0; i < dataset.length - x; i++ ) {
+    var h1 = Math.floor(x/4);
+    var h2 = Math.floor(x/2);
+    var h3 = Math.floor(x*(3/4));
+
     tl1.to(p1, duration, {
         bottom: dataset[i].f,
         width: dataset[i].a ,
@@ -71,30 +81,29 @@ for (var i = 0; i < dataset.length - 15; i++ ) {
         borderRadius: dataset[i].a  / 2
     });
     tl2.to(p2, duration, {
-        bottom: dataset[i+3].f,
-        width: dataset[i+3].a ,
-        height: dataset[i+3].a ,
-        borderRadius: dataset[i+3].a / 2
+        bottom: dataset[i+h1].f,
+        width: dataset[i+h1].a ,
+        height: dataset[i+h1].a ,
+        borderRadius: dataset[i+h1].a / 2
     });
     tl3.to(p3, duration, {
-        bottom: dataset[i+6].f ,
-        width: dataset[i+6].a ,
-        height: dataset[i+6].a ,
-        borderRadius: dataset[i+6].a / 2
+        bottom: dataset[i+h2].f ,
+        width: dataset[i+h2].a ,
+        height: dataset[i+h2].a ,
+        borderRadius: dataset[i+h2].a / 2
     });
     tl4.to(p4, duration, {
-        bottom: dataset[i+9].f ,
-        width: dataset[i+9].a ,
-        height: dataset[i+9].a ,
-        borderRadius: dataset[i+9].a  / 2
+        bottom: dataset[i+h3].f ,
+        width: dataset[i+h3].a ,
+        height: dataset[i+h3].a ,
+        borderRadius: dataset[i+h3].a  / 2
     });
     tl5.to(p5, duration, {
-        bottom: dataset[i+12].f,
-        width: dataset[i+12].a ,
-        height: dataset[i+12].a ,
-        borderRadius: dataset[i+12].a  / 2
+        bottom: dataset[i+x].f ,
+        width: dataset[i+x].a ,
+        height: dataset[i+x].a ,
+        borderRadius: dataset[i+x].a  / 2
     });
-
 }
 
 // Fade out all the dots
@@ -103,6 +112,7 @@ tl2.to(p2, 2, { opacity: 0, bottom: 0 });
 tl3.to(p3, 2, { opacity: 0, bottom: 0 });
 tl4.to(p4, 2, { opacity: 0, bottom: 0 });
 tl5.to(p5, 2, { opacity: 0, bottom: 0 });
+}
 /*
     AUDIO
 */
@@ -116,12 +126,14 @@ var audio = new Howl({
 */
 
 function start() {
+    animate()
     tl1.play();
     tl2.play();
     tl3.play();
     tl4.play();
     tl5.play();
     audio.play();
+
 }
 
 function stop() {
