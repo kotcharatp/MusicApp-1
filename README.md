@@ -15,6 +15,12 @@ The Music Visualizer is based on Python with Qt and sonic-annotator with several
 - if the graph is too complex, you can choose the degree of gaussian smoothen of your choice
 - one you are pleasured, please press the *"Export"* button
 - please go into *www-source* and open *index.html* for the visualizer
+- 
+
+#### How to use *index.html*
+-  Type the trace back value in the textbook
+-  Click start button to play music 
+-  If user want to a input a new trace back value, the use needs to refresh the page before inputting the new trace value 
 
 Thank You for
 https://github.com/MTG/sms-tools
